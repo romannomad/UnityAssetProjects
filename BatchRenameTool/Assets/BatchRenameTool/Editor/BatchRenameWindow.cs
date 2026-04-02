@@ -28,5 +28,26 @@ public class BatchRenameWindow : EditorWindow
         {
             EditorGUILayout.HelpBox("Select one or more GameObjects in the Hierarchy to rename.", MessageType.Info);
         }
+
+        EditorGUILayout.Space();
+
+        prefix = EditorGUILayout.TextField("Prefix", prefix);
+        suffix = EditorGUILayout.TextField("Suffix", suffix);
+
+        EditorGUILayout.Space();
+
+        replaceFrom = EditorGUILayout.TextField("Replace From", replaceFrom);
+        replaceTo = EditorGUILayout.TextField("Replace To", replaceTo);
+
+        EditorGUILayout.Space();
+
+        useNumbering = EditorGUILayout.Toggle("Use Numbering", useNumbering);
+        if (useNumbering)
+        {
+            startNumber = EditorGUILayout.IntField("Start Number", startNumber);
+            numberPadding = EditorGUILayout.IntField("Number Padding", numberPadding);
+        }
+
+        EditorGUILayout.Space();
     }
 }
