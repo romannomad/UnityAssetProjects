@@ -49,5 +49,10 @@ public class BatchRenameWindow : EditorWindow
         }
 
         EditorGUILayout.Space();
+
+        if (GUILayout.Button("Rename Selected Objects"))
+        {
+            RenameObjects();
+        }
     }
 }
