@@ -3,12 +3,19 @@ using UnityEditor;
 
 public class BatchRenameWindow : EditorWindow
 {
-    [MenuItem("Tools/Batch Rename Tool")]
 
+    [MenuItem("Tools/Batch Rename Tool")]
     public static void ShowWindow()
     {
         GetWindow<BatchRenameWindow>("Batch Rename");
     }
+    private string prefix = "";
+    private string suffix = "";
+    private string replaceFrom = "";
+    private string replaceTo = "";
+    private bool useNumbering = false;
+    private int startNumber = 1;
+    private int numberPadding = 2;
 
     private void OnGUI()
     {
