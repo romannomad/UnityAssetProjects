@@ -55,4 +55,28 @@ public class BatchRenameWindow : EditorWindow
             RenameObjects();
         }
     }
+
+    private void RenameObjects()
+    {
+        GameObject[] selectedObjects = Selection.gameObjects;
+
+        System.Array.Sort(selectedObjects, (a, b) => a.transform.GetSiblingIndex().CompareTo(b.transform.GetSiblingIndex())
+        );
+
+        Undo.RecordObjects(selectedObjects, "Batch Rename");
+
+        int number = startNumber;
+
+        foreach (GameObject obj in selectedObjects)
+        {
+            string newName = obj.name;
+
+            if (!string.IsNullOrEmpty(replaceFrom))
+            {
+                newName = newName.Replace(replaceFrom, replaceTo);
+            }
+
+            newName = prefix + newName + suffix;
+        }
+    }
 }
