@@ -60,6 +60,7 @@ public class BatchRenameWindow : EditorWindow
     {
         GameObject[] selectedObjects = Selection.gameObjects;
 
+        // Sort by hierarchy order for predictable numbering
         System.Array.Sort(selectedObjects, (a, b) => a.transform.GetSiblingIndex().CompareTo(b.transform.GetSiblingIndex())
         );
 
@@ -71,13 +72,16 @@ public class BatchRenameWindow : EditorWindow
         {
             string newName = obj.name;
 
+            //Replace
             if (!string.IsNullOrEmpty(replaceFrom))
             {
                 newName = newName.Replace(replaceFrom, replaceTo);
             }
 
+            //Prefix and Suffix
             newName = prefix + newName + suffix;
 
+            //Numbering
             if (useNumbering)
             {
                 string num = number.ToString().PadLeft(numberPadding, '0');
