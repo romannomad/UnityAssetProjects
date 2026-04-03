@@ -17,6 +17,8 @@ public class BatchRenameWindow : EditorWindow
     private int startNumber = 1;
     private int numberPadding = 2;
 
+    private string[] previewNames = new string[0];
+
     private void OnGUI()
     {
         GUILayout.Label("Batch Rename Tool", EditorStyles.boldLabel);
