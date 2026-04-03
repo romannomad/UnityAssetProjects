@@ -77,6 +77,15 @@ public class BatchRenameWindow : EditorWindow
             }
 
             newName = prefix + newName + suffix;
+
+            if (useNumbering)
+            {
+                string num = number.ToString().PadLeft(numberPadding, '0');
+                newName += "-" + num;
+                number++;
+            }
+
+            obj.name = newName;
         }
     }
 }
