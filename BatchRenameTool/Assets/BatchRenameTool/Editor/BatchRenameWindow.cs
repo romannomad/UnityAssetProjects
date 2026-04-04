@@ -31,6 +31,11 @@ public class BatchRenameWindow : EditorWindow
             EditorGUILayout.HelpBox("Select one or more GameObjects in the Hierarchy to rename.", MessageType.Info);
         }
 
+        if (selectedCount > 0)
+        {
+            GeneratePreview();
+        }
+
         EditorGUILayout.Space();
 
         //UI
