@@ -31,11 +31,6 @@ public class BatchRenameWindow : EditorWindow
             EditorGUILayout.HelpBox("Select one or more GameObjects in the Hierarchy to rename.", MessageType.Info);
         }
 
-        if (selectedCount > 0)
-        {
-            GeneratePreview();
-        }
-
         EditorGUILayout.Space();
 
         //UI
@@ -58,10 +53,19 @@ public class BatchRenameWindow : EditorWindow
 
         EditorGUILayout.Space();
 
-        if (GUILayout.Button("Rename Selected Objects"))
+        if (selectedCount > 0)
         {
-            RenameObjects();
+            GeneratePreview();
         }
+
+        EditorGUILayout.LabelField("Preview:", EditorStyles.boldLabel);
+
+        int previewCount = Mathf.Min(5, previewNames.Length);
+        for (int i = 0; i < previewCount; i++)
+        {
+            EditorGUILayout.LabelField($"• {previewNames[i]}");
+        }
+
     }
 
     private void RenameObjects()
