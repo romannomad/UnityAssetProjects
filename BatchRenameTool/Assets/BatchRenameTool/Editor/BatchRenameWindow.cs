@@ -55,6 +55,10 @@ public class BatchRenameWindow : EditorWindow
 
         EditorGUILayout.Space();
 
+        caseMode = (CaseMode)EditorGUILayout.EnumPopup("Case Conversion", caseMode);
+
+        EditorGUILayout.Space();
+
         if (selectedCount > 0)
         {
             GeneratePreview();
