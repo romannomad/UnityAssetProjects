@@ -116,6 +116,15 @@ public class BatchRenameWindow : EditorWindow
                 newName = newName.Replace(replaceFrom, replaceTo);
             }
 
+            newName = prefix + newName + suffix;
+
+            if (useNumbering)
+            {
+                string num = number.ToString().PadLeft(numberPadding, '0');
+                newName += "_" + num;
+                number++;
+            }
+
 
         }
     }
