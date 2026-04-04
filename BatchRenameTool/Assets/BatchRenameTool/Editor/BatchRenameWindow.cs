@@ -66,6 +66,17 @@ public class BatchRenameWindow : EditorWindow
             EditorGUILayout.LabelField($"• {previewNames[i]}");
         }
 
+        if (previewNames.Length > 5)
+        {
+            EditorGUILayout.LabelField($"... and {previewNames.Length - 5} more");
+        }
+
+        EditorGUILayout.Space();
+
+        if (GUILayout.Button("Rename Selected Objects"))
+        {
+            RenameObjects();
+        }
     }
 
     private void RenameObjects()
