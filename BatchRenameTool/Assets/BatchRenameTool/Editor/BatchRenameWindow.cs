@@ -118,6 +118,20 @@ public class BatchRenameWindow : EditorWindow
                 number++;
             }
 
+            //Case Conversion
+            switch (caseMode)
+            {
+                case CaseMode.Lowercase:
+                    newName = newName.ToLower();
+                    break;
+                case CaseMode.Uppercase:
+                    newName = newName.ToUpper();
+                    break;
+                case CaseMode.TitleCase:
+                    newName = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(newName.ToLower());
+                    break;
+            }
+
             obj.name = newName;
         }
     }
@@ -150,6 +164,20 @@ public class BatchRenameWindow : EditorWindow
                 newName += "_" + num;
                 number++;
             }
+            // Case conversion
+            switch (caseMode)
+            {
+                case CaseMode.Lowercase:
+                    newName = newName.ToLower();
+                    break;
+                case CaseMode.Uppercase:
+                    newName = newName.ToUpper();
+                    break;
+                case CaseMode.TitleCase:
+                    newName = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(newName.ToLower());
+                    break;
+            }
+
 
             previewNames[i] = newName;
         }
