@@ -125,7 +125,7 @@ public class BatchRenameWindow : EditorWindow
                 number++;
             }
 
-
+            previewNames[i] = newName;
         }
     }
 }
