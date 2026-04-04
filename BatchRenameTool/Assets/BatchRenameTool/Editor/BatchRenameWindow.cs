@@ -114,7 +114,7 @@ public class BatchRenameWindow : EditorWindow
             if (useNumbering)
             {
                 string num = number.ToString().PadLeft(numberPadding, '0');
-                newName += "-" + num;
+                newName += "_" + num;
                 number++;
             }
 
@@ -177,7 +177,6 @@ public class BatchRenameWindow : EditorWindow
                     newName = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(newName.ToLower());
                     break;
             }
-
 
             previewNames[i] = newName;
         }
