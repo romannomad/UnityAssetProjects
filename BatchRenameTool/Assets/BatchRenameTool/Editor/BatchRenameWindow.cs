@@ -22,6 +22,7 @@ public class BatchRenameWindow : EditorWindow
     private CaseMode caseMode = CaseMode.None;
 
     private enum SortingMode { Hierarchy, Alphabetical, ReverseAlphabetical };
+    private SortingMode sortingMode = SortingMode.Hierarchy;
 
     private void OnGUI()
     {
