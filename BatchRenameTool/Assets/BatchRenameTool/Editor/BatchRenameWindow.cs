@@ -62,6 +62,9 @@ public class BatchRenameWindow : EditorWindow
 
         EditorGUILayout.Space();
 
+        sortingMode = (SortingMode)EditorGUILayout.EnumPopup("Sorting Mode", sortingMode);
+        EditorGUILayout.Space();
+
         if (selectedCount > 0)
         {
             GeneratePreview();
