@@ -21,6 +21,8 @@ public class BatchRenameWindow : EditorWindow
     private enum CaseMode { None, Lowercase, Uppercase, TitleCase }
     private CaseMode caseMode = CaseMode.None;
 
+    private enum SortingMode { };
+
     private void OnGUI()
     {
         GUILayout.Label("Batch Rename Tool", EditorStyles.boldLabel);
