@@ -126,12 +126,12 @@ public class BatchRenameWindow : EditorWindow
 
         foreach (GameObject obj in selectedObjects)
         {
-            string newName = obj.name;
+            RenameSingleObject(obj, ref number);
 
             //Replace
-            if (!string.IsNullOrEmpty(replaceFrom))
+            if (renameChildren)
             {
-                newName = newName.Replace(replaceFrom, replaceTo);
+                RenameChildrenRecursive(obj.transform, ref number);
             }
 
             //Prefix and Suffix
@@ -161,6 +161,7 @@ public class BatchRenameWindow : EditorWindow
 
             obj.name = newName;
         }
+
     }
 
     private void GeneratePreview()
