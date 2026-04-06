@@ -212,6 +212,16 @@ public class BatchRenameWindow : EditorWindow
         }
 
         previewNames = names.ToArray();
-
     }
+
+    private string GeneratePreviewName(string original, ref int number)
+    {
+        string newName = original;
+
+        if (!string.IsNullOrEmpty(replaceFrom))
+        {
+            newName = newName.Replace(replaceFrom, replaceTo);
+        }
+    }
+
 }
