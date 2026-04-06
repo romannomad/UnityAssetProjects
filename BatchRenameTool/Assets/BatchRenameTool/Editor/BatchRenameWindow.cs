@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEditor;
 using Unity.Mathematics;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public class BatchRenameWindow : EditorWindow
 {
@@ -231,6 +232,23 @@ public class BatchRenameWindow : EditorWindow
             newName += "_" + num;
             number++;
         }
+
+        switch (caseMode)
+        {
+            case CaseMode.Lowercase:
+                newName = newName.ToLower();
+                break;
+
+            case CaseMode.Uppercase:
+                newName = newName.ToUpper();
+                break;
+
+            case CaseMode.TitleCase:
+                newName = System.Globalization.CultureInfo.CurrentCulture.TextInfo
+                    .ToTitleCase(newName.ToLower());
+                break;
+        }
+        return newName;
     }
 
 }
