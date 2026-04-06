@@ -211,5 +211,7 @@ public class BatchRenameWindow : EditorWindow
                 GeneratePreviewChildren(obj.transform, names, ref number);
         }
 
+        previewNames = names.ToArray();
+
     }
 }
