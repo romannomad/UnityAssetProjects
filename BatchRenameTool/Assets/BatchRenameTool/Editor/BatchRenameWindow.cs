@@ -117,7 +117,6 @@ public class BatchRenameWindow : EditorWindow
                 break;
         }
 
-
         Undo.RecordObjects(selectedObjects, "Batch Rename");
 
         int number = startNumber;
@@ -165,8 +164,26 @@ public class BatchRenameWindow : EditorWindow
     {
         GameObject[] selectedObjects = Selection.gameObjects;
 
-        System.Array.Sort(selectedObjects, (a, b) => a.transform.GetSiblingIndex().CompareTo(b.transform.GetSiblingIndex())
-        );
+        //System.Array.Sort(selectedObjects, (a, b) => a.transform.GetSiblingIndex().CompareTo(b.transform.GetSiblingIndex())
+        //);
+
+        switch (sortingMode)
+        {
+            case SortingMode.Hierarchy:
+                System.Array.Sort(selectedObjects, (a, b) =>
+                    a.transform.GetSiblingIndex().CompareTo(b.transform.GetSiblingIndex()));
+                break;
+
+            case SortingMode.Alphabetical:
+                System.Array.Sort(selectedObjects, (a, b) =>
+                    a.name.CompareTo(b.name));
+                break;
+
+            case SortingMode.ReverseAlphabetical:
+                System.Array.Sort(selectedObjects, (a, b) =>
+                    b.name.CompareTo(a.name));
+                break;
+        }
 
         previewNames = new string[selectedObjects.Length];
 
