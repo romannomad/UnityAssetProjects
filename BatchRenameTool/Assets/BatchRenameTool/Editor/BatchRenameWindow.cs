@@ -251,4 +251,13 @@ public class BatchRenameWindow : EditorWindow
         return newName;
     }
 
+    private void GeneratePreviewChildren(Transform parent, List<string> names, ref int number)
+    {
+        foreach (Transform child in parent)
+        {
+            names.Add(GeneratePreviewName(child.name, ref number));
+            GeneratePreviewChildren(child, names, ref number);
+        }
+    }
+
 }
