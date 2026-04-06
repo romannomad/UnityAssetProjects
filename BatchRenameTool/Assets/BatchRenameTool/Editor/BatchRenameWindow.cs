@@ -16,13 +16,13 @@ public class BatchRenameWindow : EditorWindow
     private bool useNumbering = false;
     private int startNumber = 1;
     private int numberPadding = 2;
-
     private string[] previewNames = new string[0];
     private enum CaseMode { None, Lowercase, Uppercase, TitleCase }
     private CaseMode caseMode = CaseMode.None;
 
     private enum SortingMode { Hierarchy, Alphabetical, ReverseAlphabetical };
     private SortingMode sortingMode = SortingMode.Hierarchy;
+    private bool renameChildren = false;
 
     private void OnGUI()
     {
