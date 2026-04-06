@@ -206,7 +206,7 @@ public class BatchRenameWindow : EditorWindow
 
         foreach (GameObject obj in selectedObjects)
         {
-            names.Add(GetPreviewName(obj.name, ref number));
+            names.Add(GeneratePreviewName(obj.name, ref number));
 
             if (renameChildren)
                 GeneratePreviewChildren(obj.transform, names, ref number);
