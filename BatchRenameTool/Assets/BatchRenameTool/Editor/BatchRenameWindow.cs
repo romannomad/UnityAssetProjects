@@ -98,10 +98,7 @@ public class BatchRenameWindow : EditorWindow
     {
         GameObject[] selectedObjects = Selection.gameObjects;
 
-        // Sort by hierarchy order for predictable numbering
-        //System.Array.Sort(selectedObjects, (a, b) => a.transform.GetSiblingIndex().CompareTo(b.transform.GetSiblingIndex())
-        //);
-
+        // Sorting
         switch (sortingMode)
         {
             case SortingMode.Hierarchy:
@@ -120,48 +117,62 @@ public class BatchRenameWindow : EditorWindow
                 break;
         }
 
-        Undo.RecordObjects(selectedObjects, "Batch Rename");
-
         int number = startNumber;
 
         foreach (GameObject obj in selectedObjects)
         {
             RenameSingleObject(obj, ref number);
 
-            //Replace
             if (renameChildren)
-            {
                 RenameChildrenRecursive(obj.transform, ref number);
-            }
+        }
+    }
+    private void RenameSingleObject(GameObject obj, ref int number)
+    {
+        Undo.RecordObject(obj, "Batch Rename");
 
-            //Prefix and Suffix
-            newName = prefix + newName + suffix;
+        string newName = obj.name;
 
-            //Numbering
-            if (useNumbering)
-            {
-                string num = number.ToString().PadLeft(numberPadding, '0');
-                newName += "_" + num;
-                number++;
-            }
+        // Replace
+        if (!string.IsNullOrEmpty(replaceFrom))
+            newName = newName.Replace(replaceFrom, replaceTo);
 
-            //Case Conversion
-            switch (caseMode)
-            {
-                case CaseMode.Lowercase:
-                    newName = newName.ToLower();
-                    break;
-                case CaseMode.Uppercase:
-                    newName = newName.ToUpper();
-                    break;
-                case CaseMode.TitleCase:
-                    newName = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(newName.ToLower());
-                    break;
-            }
+        // Prefix + Suffix
+        newName = prefix + newName + suffix;
 
-            obj.name = newName;
+        // Numbering
+        if (useNumbering)
+        {
+            string num = number.ToString().PadLeft(numberPadding, '0');
+            newName += "_" + num;
+            number++;
         }
 
+        // Case conversion
+        switch (caseMode)
+        {
+            case CaseMode.Lowercase:
+                newName = newName.ToLower();
+                break;
+            case CaseMode.Uppercase:
+                newName = newName.ToUpper();
+                break;
+            case CaseMode.TitleCase:
+                newName = System.Globalization.CultureInfo.CurrentCulture.TextInfo
+                    .ToTitleCase(newName.ToLower());
+                break;
+        }
+
+        obj.name = newName;
+    }
+
+    private void RenameChildrenRecursive(Transform parent, ref int number)
+    {
+        foreach (Transform child in parent)
+        {
+            RenameSingleObject(child.gameObject, ref number);
+            RenameChildrenRecursive(child, ref number);
+        }
     }
 
     private void GeneratePreview()
