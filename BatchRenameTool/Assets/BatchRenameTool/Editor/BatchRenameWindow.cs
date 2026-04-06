@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEditor;
+using Unity.Mathematics;
+using System.Collections.Generic;
 
 public class BatchRenameWindow : EditorWindow
 {
@@ -179,9 +181,7 @@ public class BatchRenameWindow : EditorWindow
     {
         GameObject[] selectedObjects = Selection.gameObjects;
 
-        //System.Array.Sort(selectedObjects, (a, b) => a.transform.GetSiblingIndex().CompareTo(b.transform.GetSiblingIndex())
-        //);
-
+        //Sorting
         switch (sortingMode)
         {
             case SortingMode.Hierarchy:
@@ -200,42 +200,16 @@ public class BatchRenameWindow : EditorWindow
                 break;
         }
 
-        previewNames = new string[selectedObjects.Length];
-
+        List<string> names = new List<string>();
         int number = startNumber;
 
-        for (int i = 0; i < selectedObjects.Length; i++)
+        foreach (GameObject obj in selectedObjects)
         {
-            string newName = selectedObjects[i].name;
+            names.Add(GetPreviewName(obj.name, ref number));
 
-            if (!string.IsNullOrEmpty(replaceFrom))
-            {
-                newName = newName.Replace(replaceFrom, replaceTo);
-            }
-
-            newName = prefix + newName + suffix;
-
-            if (useNumbering)
-            {
-                string num = number.ToString().PadLeft(numberPadding, '0');
-                newName += "_" + num;
-                number++;
-            }
-            // Case conversion
-            switch (caseMode)
-            {
-                case CaseMode.Lowercase:
-                    newName = newName.ToLower();
-                    break;
-                case CaseMode.Uppercase:
-                    newName = newName.ToUpper();
-                    break;
-                case CaseMode.TitleCase:
-                    newName = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(newName.ToLower());
-                    break;
-            }
-
-            previewNames[i] = newName;
+            if (renameChildren)
+                GeneratePreviewChildren(obj.transform, names, ref number);
         }
+
     }
 }
