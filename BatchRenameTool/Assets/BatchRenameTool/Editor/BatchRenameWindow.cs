@@ -265,4 +265,17 @@ public class BatchRenameWindow : EditorWindow
         }
     }
 
+    private void ResetSettings()
+    {
+        prefix = "";
+        suffix = "";
+        replaceFrom = "";
+        replaceTo = "";
+        useNumbering = false;
+        startNumber = 1;
+        numberPadding = 2;
+        caseMode = CaseMode.None;
+
+    }
+
 }
