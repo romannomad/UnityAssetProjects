@@ -275,6 +275,8 @@ public class BatchRenameWindow : EditorWindow
         startNumber = 1;
         numberPadding = 2;
         caseMode = CaseMode.None;
+        sortingMode = SortingMode.Hierarchy;
+        renameChildren = false;
 
     }
 
