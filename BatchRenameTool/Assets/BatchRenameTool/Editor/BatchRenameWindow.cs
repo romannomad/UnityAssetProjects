@@ -95,6 +95,11 @@ public class BatchRenameWindow : EditorWindow
         {
             RenameObjects();
         }
+
+        if (GUILayout.Button("Reset Settings"))
+        {
+            ResetSettings();
+        }
     }
 
     private void RenameObjects()
