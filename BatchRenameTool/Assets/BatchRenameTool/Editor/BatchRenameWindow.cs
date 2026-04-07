@@ -278,6 +278,8 @@ public class BatchRenameWindow : EditorWindow
         sortingMode = SortingMode.Hierarchy;
         renameChildren = false;
 
+        previewNames = new string[0];
+
     }
 
 }
