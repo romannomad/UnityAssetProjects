@@ -280,6 +280,9 @@ public class BatchRenameWindow : EditorWindow
 
         previewNames = new string[0];
 
+        //Force UI refresh
+        Repaint();
+
     }
 
 }
