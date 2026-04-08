@@ -266,6 +266,7 @@ public class BatchRenameWindow : EditorWindow
             indexStr = number.ToString().PadLeft(numberPadding, '0');
             newName += "_" + indexStr;
             number++;
+
         }
 
         switch (caseMode)
