@@ -148,6 +148,12 @@ public class BatchRenameWindow : EditorWindow
         if (!string.IsNullOrEmpty(replaceFrom))
             newName = newName.Replace(replaceFrom, replaceTo);
 
+        //Regex Replace
+        if (useRegex && !string,IsNullOrEmpty(regexPattern))
+        {
+            newName = System.Text.RegularExpressions.Regex.Replace(newName, regexPattern, regexReplace);
+        }
+
         // Prefix + Suffix
         newName = prefix + newName + suffix;
 
