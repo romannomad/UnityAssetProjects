@@ -27,6 +27,8 @@ public class BatchRenameWindow : EditorWindow
     private SortingMode sortingMode = SortingMode.Hierarchy;
     private bool renameChildren = false;
 
+    bool useRegex = false;
+
     private void OnGUI()
     {
         GUILayout.Label("Batch Rename Tool", EditorStyles.boldLabel);
