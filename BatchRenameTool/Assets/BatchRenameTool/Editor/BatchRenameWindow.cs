@@ -149,7 +149,7 @@ public class BatchRenameWindow : EditorWindow
             newName = newName.Replace(replaceFrom, replaceTo);
 
         //Regex Replace
-        if (useRegex && !string,IsNullOrEmpty(regexPattern))
+        if (useRegex && !string.IsNullOrEmpty(regexPattern))
         {
             newName = System.Text.RegularExpressions.Regex.Replace(newName, regexPattern, regexReplace);
         }
