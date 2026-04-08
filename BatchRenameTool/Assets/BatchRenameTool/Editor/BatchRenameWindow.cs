@@ -260,10 +260,11 @@ public class BatchRenameWindow : EditorWindow
 
         newName = prefix + newName + suffix;
 
+        string indexStr = "";
         if (useNumbering)
         {
-            string num = number.ToString().PadLeft(numberPadding, '0');
-            newName += "_" + num;
+            indexStr = number.ToString().PadLeft(numberPadding, '0');
+            newName += "_" + indexStr;
             number++;
         }
 
@@ -286,7 +287,6 @@ public class BatchRenameWindow : EditorWindow
         if (!string.IsNullOrEmpty(nameTemplate))
         {
             string parentName = obj.transform.parent ? obj.transform.parent.name : "";
-            string indexStr = number.ToString().PadLeft(numberPadding, '0');
             string depthStr = obj.transform.GetSiblingIndex().ToString();
 
             newName = nameTemplate
