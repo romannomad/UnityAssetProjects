@@ -278,6 +278,19 @@ public class BatchRenameWindow : EditorWindow
                 break;
         }
         //Apply template preview
+        if (!string.IsNullOrEmpty(nameTemplate))
+        {
+            string parentName = "";
+            string indexStr = number.ToString().PadLeft(numberPadding, '0');
+            string depthStr = "";
+
+            newName = nameTemplate
+                .Replace("{name}", newName)
+                .Replace("{parent}", parentName)
+                .Replace("{index}", indexStr)
+                .Replace("{depth}", depthStr);
+        }
+
         return newName;
     }
 
