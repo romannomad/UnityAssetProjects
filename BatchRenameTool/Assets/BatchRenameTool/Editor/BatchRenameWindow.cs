@@ -105,7 +105,6 @@ public class BatchRenameWindow : EditorWindow
             ResetSettings();
         }
     }
-
     private void RenameObjects()
     {
         GameObject[] selectedObjects = Selection.gameObjects;
