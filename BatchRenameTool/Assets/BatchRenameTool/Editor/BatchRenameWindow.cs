@@ -181,6 +181,11 @@ public class BatchRenameWindow : EditorWindow
                     .ToTitleCase(newName.ToLower());
                 break;
         }
+        //Apple template
+        if (!string.IsNullOrEmpty(nameTemplate))
+        {
+            string parentName = obj.transform.parent ? obj.transform.parent.name : "";
+        }
 
         obj.name = newName;
     }
