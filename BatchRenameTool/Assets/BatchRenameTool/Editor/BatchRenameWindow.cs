@@ -253,6 +253,11 @@ public class BatchRenameWindow : EditorWindow
             newName = newName.Replace(replaceFrom, replaceTo);
         }
 
+        if (useRegex && !string.IsNullOrEmpty(regexPattern))
+        {
+            newName = System.Text.RegularExpressions.Regex.Replace(newName, regexPattern, regexReplace);
+        }
+
         newName = prefix + newName + suffix;
 
         if (useNumbering)
@@ -280,9 +285,9 @@ public class BatchRenameWindow : EditorWindow
         //Apply template preview
         if (!string.IsNullOrEmpty(nameTemplate))
         {
-            string parentName = "";
+            string parentName = obj.transform.parent ? obj.transform.parent.name : "";
             string indexStr = number.ToString().PadLeft(numberPadding, '0');
-            string depthStr = "";
+            string depthStr = obj.transform.GetSiblingIndex().ToString();
 
             newName = nameTemplate
                 .Replace("{name}", newName)
