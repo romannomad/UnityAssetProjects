@@ -31,6 +31,8 @@ public class BatchRenameWindow : EditorWindow
     string regexPattern = "";
     string regexReplace = "";
 
+    string nameTemplate = "{name}";
+
     private void OnGUI()
     {
         GUILayout.Label("Batch Rename Tool", EditorStyles.boldLabel);
