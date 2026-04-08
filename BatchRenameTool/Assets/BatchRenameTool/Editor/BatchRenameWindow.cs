@@ -235,7 +235,7 @@ public class BatchRenameWindow : EditorWindow
 
         foreach (GameObject obj in selectedObjects)
         {
-            names.Add(GeneratePreviewName(obj.name, ref number));
+            names.Add(GeneratePreviewName(obj, ref number));
 
             if (renameChildren)
                 GeneratePreviewChildren(obj.transform, names, ref number);
@@ -244,7 +244,7 @@ public class BatchRenameWindow : EditorWindow
         previewNames = names.ToArray();
     }
 
-    private string GeneratePreviewName(string original, ref int number)
+    private string GeneratePreviewName(GameObject obj, ref int number)
     {
         string newName = original;
 
@@ -298,7 +298,7 @@ public class BatchRenameWindow : EditorWindow
     {
         foreach (Transform child in parent)
         {
-            names.Add(GeneratePreviewName(child.name, ref number));
+            names.Add(GeneratePreviewName(child.gameObject, ref number));
             GeneratePreviewChildren(child, names, ref number);
         }
     }
