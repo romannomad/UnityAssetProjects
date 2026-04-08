@@ -277,6 +277,7 @@ public class BatchRenameWindow : EditorWindow
                     .ToTitleCase(newName.ToLower());
                 break;
         }
+        //Apply template preview
         return newName;
     }
 
