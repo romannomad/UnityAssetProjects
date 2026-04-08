@@ -187,6 +187,12 @@ public class BatchRenameWindow : EditorWindow
             string parentName = obj.transform.parent ? obj.transform.parent.name : "";
             string indexStr = number.ToString().PadLeft(numberPadding, '0');
             string depthStr = obj.transform.GetSiblingIndex().ToString();
+
+            newName = nameTemplate
+                .Replace("{name}", newName)
+                .Replace("{parent}", parentName)
+                .Replace("{index}", indexStr)
+                .Replace("{depth}", depthStr);
         }
 
         obj.name = newName;
