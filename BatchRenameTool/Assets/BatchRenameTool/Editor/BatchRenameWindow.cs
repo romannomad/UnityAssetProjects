@@ -28,6 +28,7 @@ public class BatchRenameWindow : EditorWindow
     private bool renameChildren = false;
 
     bool useRegex = false;
+    string regexPattern = "";
 
     private void OnGUI()
     {
