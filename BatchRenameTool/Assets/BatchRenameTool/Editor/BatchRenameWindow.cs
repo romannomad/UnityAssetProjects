@@ -246,7 +246,7 @@ public class BatchRenameWindow : EditorWindow
 
     private string GeneratePreviewName(GameObject obj, ref int number)
     {
-        string newName = original;
+        string newName = obj.name;
 
         if (!string.IsNullOrEmpty(replaceFrom))
         {
