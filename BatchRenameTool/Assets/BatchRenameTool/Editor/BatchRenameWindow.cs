@@ -34,6 +34,7 @@ public class BatchRenameWindow : EditorWindow
     string nameTemplate = "{name}";
 
     private enum NumberingMode { Global, RestartPerParent, SiblingsOnly, ChildrenOnly }
+    private NumberingMode numberingMode = NumberingMode.Global;
 
     private void OnGUI()
     {
