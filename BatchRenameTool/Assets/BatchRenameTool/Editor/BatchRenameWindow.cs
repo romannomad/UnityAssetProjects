@@ -309,7 +309,7 @@ public class BatchRenameWindow : EditorWindow
         {
             int depth = GetDepth(child);
             string indent = new string(' ', depth * 3);
-            names.Add(indent + GeneratePreviewName(obj, ref number));
+            names.Add(indent + GeneratePreviewName(child.gameObject, ref number));
             GeneratePreviewChildren(child, names, ref number);
         }
     }
