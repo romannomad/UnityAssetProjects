@@ -33,7 +33,7 @@ public class BatchRenameWindow : EditorWindow
 
     string nameTemplate = "{name}";
 
-    private enum NumberingMode
+    private enum NumberingMode { Global, RestartPerParent, SiblingsOnly, ChildrenOnly }
 
     private void OnGUI()
     {
