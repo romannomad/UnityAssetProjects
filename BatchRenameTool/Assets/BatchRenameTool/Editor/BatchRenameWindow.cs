@@ -329,4 +329,15 @@ public class BatchRenameWindow : EditorWindow
 
     }
 
+    private int GetDepth(Transform t)
+    {
+        int depth = 0;
+        while (t.parent != null)
+        {
+            depth++;
+            t = t.parent;
+        }
+        return depth;
+    }
+
 }
