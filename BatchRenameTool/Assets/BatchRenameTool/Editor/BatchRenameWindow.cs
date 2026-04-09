@@ -235,7 +235,10 @@ public class BatchRenameWindow : EditorWindow
 
         foreach (GameObject obj in selectedObjects)
         {
-            names.Add(GeneratePreviewName(obj, ref number));
+            int depth = GetDepth(obj.transform);
+            string indent = new string(' ', depth * 3);
+            names.Add(indent + GeneratePreviewName(obj, ref number));
+
 
             if (renameChildren)
                 GeneratePreviewChildren(obj.transform, names, ref number);
