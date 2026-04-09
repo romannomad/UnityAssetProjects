@@ -33,6 +33,8 @@ public class BatchRenameWindow : EditorWindow
 
     string nameTemplate = "{name}";
 
+    private enum NumberingMode
+
     private void OnGUI()
     {
         GUILayout.Label("Batch Rename Tool", EditorStyles.boldLabel);
