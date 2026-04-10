@@ -300,13 +300,41 @@ public class BatchRenameWindow : EditorWindow
         newName = prefix + newName + suffix;
 
         string indexStr = "";
-        if (useNumbering)
-        {
-            indexStr = number.ToString().PadLeft(numberPadding, '0');
-            newName += "_" + indexStr;
-            number++;
 
+        // Numbering
+        int currentNumber = number;
+
+        switch (numberingMode)
+        {
+            case NumberingMode.Global:
+                currentNumber = number;
+                number++;
+                break;
+
+            case NumberingMode.RestartPerParent:
+                Transform parent = obj.transform.parent;
+                if (!parentCounters.ContainsKey(parent))
+                    parentCounters[parent] = startNumber;
+
+                currentNumber = parentCounters[parent];
+                parentCounters[parent]++;
+                break;
+
+            case NumberingMode.SiblingsOnly:
+                currentNumber = obj.transform.GetSiblingIndex() + startNumber;
+                break;
+
+            case NumberingMode.ChildrenOnly:
+                if (obj.transform.parent != null)
+                    currentNumber = obj.transform.GetSiblingIndex() + startNumber;
+                else
+                    currentNumber = 0;
+                break;
         }
+
+        string numStr = currentNumber.ToString().PadLeft(numberPadding, '0');
+        newName += "_" + numStr;
+
 
         switch (caseMode)
         {
