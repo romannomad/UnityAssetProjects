@@ -136,6 +136,8 @@ public class BatchRenameWindow : EditorWindow
                 break;
         }
 
+        parentCounters.Clear();
+
         int number = startNumber;
 
         foreach (GameObject obj in selectedObjects)
