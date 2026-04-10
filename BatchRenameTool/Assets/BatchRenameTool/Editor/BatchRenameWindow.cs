@@ -158,7 +158,7 @@ public class BatchRenameWindow : EditorWindow
         if (!string.IsNullOrEmpty(replaceFrom))
             newName = newName.Replace(replaceFrom, replaceTo);
 
-        //Regex Replace
+        // Regex Replace
         if (useRegex && !string.IsNullOrEmpty(regexPattern))
         {
             newName = System.Text.RegularExpressions.Regex.Replace(newName, regexPattern, regexReplace);
@@ -198,7 +198,7 @@ public class BatchRenameWindow : EditorWindow
                 break;
         }
 
-        // append number
+        // Append number
         string num = currentNumber.ToString().PadLeft(numberPadding, '0');
         newName += "_" + num;
 
@@ -217,7 +217,7 @@ public class BatchRenameWindow : EditorWindow
                     .ToTitleCase(newName.ToLower());
                 break;
         }
-        //Apple template
+        // Apple template
         if (!string.IsNullOrEmpty(nameTemplate))
         {
             string parentName = obj.transform.parent ? obj.transform.parent.name : "";
