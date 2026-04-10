@@ -247,7 +247,7 @@ public class BatchRenameWindow : EditorWindow
     {
         GameObject[] selectedObjects = Selection.gameObjects;
 
-        //Sorting
+        // Sorting
         switch (sortingMode)
         {
             case SortingMode.Hierarchy:
@@ -353,7 +353,7 @@ public class BatchRenameWindow : EditorWindow
                     .ToTitleCase(newName.ToLower());
                 break;
         }
-        //Apply template preview
+        // Apply template preview
         if (!string.IsNullOrEmpty(nameTemplate))
         {
             string parentName = obj.transform.parent ? obj.transform.parent.name : "";
@@ -395,7 +395,7 @@ public class BatchRenameWindow : EditorWindow
 
         previewNames = new string[0];
 
-        //Force UI refresh
+        // Force UI refresh
         Repaint();
 
     }
