@@ -168,6 +168,8 @@ public class BatchRenameWindow : EditorWindow
         newName = prefix + newName + suffix;
 
         // Numbering
+
+        // Numbering
         int currentNumber = number;
 
         switch (numberingMode)
@@ -182,7 +184,7 @@ public class BatchRenameWindow : EditorWindow
                 if (!parentCounters.ContainsKey(parent))
                     parentCounters[parent] = startNumber;
 
-            case currentNumber = parentCounters[parent];
+                currentNumber = parentCounters[parent];
                 parentCounters[parent]++;
                 break;
 
@@ -192,17 +194,16 @@ public class BatchRenameWindow : EditorWindow
 
             case NumberingMode.ChildrenOnly:
                 if (obj.transform.parent != null)
-                {
                     currentNumber = obj.transform.GetSiblingIndex() + startNumber;
-                }
                 else
-                {
                     currentNumber = 0;
-                    break;
-                }
-                string num = currentNumber.ToString().PadLeft(numberPadding, '0');
-                newName += "_" + num;
+                break;
         }
+
+        // append number
+        string num = currentNumber.ToString().PadLeft(numberPadding, '0');
+        newName += "_" + num;
+
 
         // Case conversion
         switch (caseMode)
