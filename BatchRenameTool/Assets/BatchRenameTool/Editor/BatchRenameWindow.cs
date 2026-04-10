@@ -200,6 +200,8 @@ public class BatchRenameWindow : EditorWindow
                     currentNumber = 0;
                     break;
                 }
+                string num = currentNumber.ToString().PadLeft(numberPadding, '0');
+                newName += "_" + num;
         }
 
         // Case conversion
