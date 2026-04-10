@@ -221,7 +221,7 @@ public class BatchRenameWindow : EditorWindow
         if (!string.IsNullOrEmpty(nameTemplate))
         {
             string parentName = obj.transform.parent ? obj.transform.parent.name : "";
-            string indexStr = number.ToString().PadLeft(numberPadding, '0');
+            string indexStr = num;
             string depthStr = obj.transform.GetSiblingIndex().ToString();
 
             newName = nameTemplate
