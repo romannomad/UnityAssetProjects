@@ -176,6 +176,11 @@ public class BatchRenameWindow : EditorWindow
                 currentNumber = number;
                 number++;
                 break;
+
+            case NumberingMode.RestartPerParent:
+                Transform parent = obj.transform.parent;
+                if (!parentCounters.ContainsKey(parent))
+                    parentCounters[parent] = startNumber;
         }
 
         // Case conversion
