@@ -35,6 +35,7 @@ public class BatchRenameWindow : EditorWindow
 
     private enum NumberingMode { Global, RestartPerParent, SiblingsOnly, ChildrenOnly }
     private NumberingMode numberingMode = NumberingMode.Global;
+    private Dictionary<Transform, int> parentCounters = new Dictionary<Transform, int>();
 
     private void OnGUI()
     {
