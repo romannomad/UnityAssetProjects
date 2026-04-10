@@ -266,6 +266,8 @@ public class BatchRenameWindow : EditorWindow
                 break;
         }
 
+        parentCounters.Clear();
+
         List<string> names = new List<string>();
         int number = startNumber;
 
