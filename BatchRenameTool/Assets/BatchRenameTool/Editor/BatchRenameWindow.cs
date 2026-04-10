@@ -197,8 +197,8 @@ public class BatchRenameWindow : EditorWindow
                 }
                 else
                 {
-                    currentNumber = number;
-                    number++;
+                    currentNumber = 0;
+                    break;
                 }
         }
 
