@@ -168,11 +168,14 @@ public class BatchRenameWindow : EditorWindow
         newName = prefix + newName + suffix;
 
         // Numbering
-        if (useNumbering)
+        int currentNumber = number;
+
+        switch (numberingMode)
         {
-            string num = number.ToString().PadLeft(numberPadding, '0');
-            newName += "_" + num;
-            number++;
+            case NumberingMode.Global:
+                currentNumber = number;
+                number++;
+                break;
         }
 
         // Case conversion
