@@ -168,8 +168,6 @@ public class BatchRenameWindow : EditorWindow
         newName = prefix + newName + suffix;
 
         // Numbering
-
-        // Numbering
         int currentNumber = number;
 
         switch (numberingMode)
