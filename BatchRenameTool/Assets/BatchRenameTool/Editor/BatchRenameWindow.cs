@@ -66,6 +66,8 @@ public class BatchRenameWindow : EditorWindow
         {
             startNumber = EditorGUILayout.IntField("Start Number", startNumber);
             numberPadding = EditorGUILayout.IntField("Number Padding", numberPadding);
+
+            numberingMode = (NumberingMode)EditorGUILayout.EnumPopup("Numbering Mode", numberingMode);
         }
 
         EditorGUILayout.Space();
