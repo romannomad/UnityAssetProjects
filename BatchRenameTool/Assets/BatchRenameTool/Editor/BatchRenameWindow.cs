@@ -301,8 +301,6 @@ public class BatchRenameWindow : EditorWindow
 
         newName = prefix + newName + suffix;
 
-        string indexStr = "";
-
         // Numbering
         int currentNumber = number;
 
@@ -336,6 +334,8 @@ public class BatchRenameWindow : EditorWindow
 
         string numStr = currentNumber.ToString().PadLeft(numberPadding, '0');
         newName += "_" + numStr;
+
+        string indexStr = numStr;
 
 
         switch (caseMode)
