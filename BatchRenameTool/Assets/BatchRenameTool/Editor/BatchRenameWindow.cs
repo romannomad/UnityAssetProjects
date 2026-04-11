@@ -51,7 +51,7 @@ public class BatchRenameWindow : EditorWindow
 
         EditorGUILayout.Space();
 
-        //UI
+        // UI
         prefix = EditorGUILayout.TextField("Prefix", prefix);
         suffix = EditorGUILayout.TextField("Suffix", suffix);
 
