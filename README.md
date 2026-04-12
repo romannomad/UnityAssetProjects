@@ -1,4 +1,5 @@
 Batch Rename Tool for Unity
+
 A lightweight and efficient Unity Editor extension for renaming multiple objects at once.
 Designed to speed up your workflow and keep your hierarchy clean.
 
