@@ -84,7 +84,7 @@ Review the live preview
 
 Click Rename Selected Objects
 
-![alt image](https://github.com/romannomad/UnityAssetProjects/blob/main/1.png)
+![alt image](https://github.com/romannomad/UnityAssetProjects/blob/main/BatchRenameTool/Screenshots/1.png)
 ![alt image](https://github.com/romannomad/UnityAssetProjects/blob/main/2.png)
 ![alt image](https://github.com/romannomad/UnityAssetProjects/blob/main/3.png)
 ![alt image](https://github.com/romannomad/UnityAssetProjects/blob/main/4.png)
