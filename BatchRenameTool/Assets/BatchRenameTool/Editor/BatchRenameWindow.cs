@@ -115,6 +115,8 @@ public class BatchRenameWindow : EditorWindow
             ResetSettings();
         }
     }
+
+    // Rename Logic
     private void RenameObjects()
     {
         GameObject[] selectedObjects = Selection.gameObjects;
