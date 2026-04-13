@@ -37,6 +37,8 @@ public class BatchRenameWindow : EditorWindow
     private NumberingMode numberingMode = NumberingMode.Global;
     private Dictionary<Transform, int> parentCounters = new Dictionary<Transform, int>();
 
+
+    // GUI
     private void OnGUI()
     {
         GUILayout.Label("Batch Rename Tool", EditorStyles.boldLabel);
