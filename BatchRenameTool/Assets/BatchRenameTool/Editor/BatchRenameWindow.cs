@@ -140,6 +140,8 @@ public class BatchRenameWindow : EditorWindow
                 break;
         }
 
+        //Counters
+
         parentCounters.Clear();
 
         int number = startNumber;
