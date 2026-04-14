@@ -163,9 +163,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ece16e72f4574c6fb8a02e65b1d6add, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DemoInstructions
-  instructions: "This demo scene is included to satisfy Unity Asset Store validation.\n\nTo
-    open the Batch Rename Tool:\nTools \u2192 Batch Rename Tool\n\nThis scene does
-    not require runtime functionality."
+  instructions: "This demo scene is included.\n\nTo open the Batch Rename Tool:\nTools
+    \u2192 Batch Rename Tool\n\nThis scene does not require runtime functionality."
 --- !u!1 &1928450561
 GameObject:
   m_ObjectHideFlags: 0
