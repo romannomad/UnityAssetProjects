@@ -8,6 +8,8 @@ namespace BatchRenameTool
     {
         [TextArea]
 
+
+        //Instructions
         public string instructions =
         "This demo scene is included.\n\n" +
             "To open the Batch Rename Tool:\n" +
