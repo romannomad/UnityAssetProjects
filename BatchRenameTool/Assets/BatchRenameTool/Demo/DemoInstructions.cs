@@ -11,7 +11,7 @@ namespace BatchRenameTool
 
         //Instructions
         public string instructions =
-        "This demo shows how to use the Batch.\n\n" +
+        "This demo shows how to use the Batch Rename .\n\n" +
             "To open the Batch Rename Tool:\n" +
             "Tools → Batch Rename Tool\n\n" +
             "This scene does not require runtime functionality.";
