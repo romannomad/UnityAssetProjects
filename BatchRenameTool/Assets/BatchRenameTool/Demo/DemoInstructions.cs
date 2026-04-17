@@ -9,7 +9,7 @@ namespace BatchRenameTool
         [TextArea]
 
 
-        //Instructions for Batch 
+        //Instructions for Batch Rename 
         public string instructions =
         "This demo shows how to use the Batch Rename Tool.\n\n" +
             "To open the Batch Rename Tool:\n" +
